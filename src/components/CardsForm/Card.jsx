@@ -76,18 +76,6 @@ export const Card = React.memo(({ name, summ, measure }) => {
             </Formik>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
 
     )

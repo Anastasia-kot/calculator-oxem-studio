@@ -1,6 +1,7 @@
 import './App.css';
 import { Button } from './components/Button/Button';
-import { Card } from './components/CardsForm/Card';
+// import { Card } from './components/CardsForm/Card';
+import { CardForm } from './components/CardsForm/CardForm';
 import { InfoCard } from './components/InfoCard/InfoCard';
 
 function App() {
@@ -10,9 +11,10 @@ function App() {
           Рассчитайте стоимость автомобиля в лизинг
         </h1>
         <div className="App-main">
-                  <Card name='Стоимость автомобиля' />
+                  {/* <Card name='Стоимость автомобиля' />
                   <Card name='Первоначальный взнос' />
-                  <Card name='Срок лизинга' />
+                  <Card name='Срок лизинга' /> */}
+                  <CardForm/> 
                   
                 <div className="App-InfoCards">
                   <InfoCard name='Сумма договора лизинга' />

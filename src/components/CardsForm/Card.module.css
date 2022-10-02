@@ -1,11 +1,12 @@
-/* Стоимость автомобиля */
+.form{
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+
+}
 
 .CardName {
-  /* position: absolute;
-  left: 0%;
-  right: 59.25%;
-  top: 0%;
-  bottom: 83.19%; */
+   text-align: left;
 
   font-family: 'Gilroy',"Arial", sans-serif;
   font-style: normal;
@@ -48,3 +49,127 @@
     background: #F3F3F4;
 }
 
+
+
+.CardNameCost{
+  position: relative;
+}
+.CardNameCost:after {
+     content: '₽';
+      position: absolute;
+      z-index: 1;
+      top: 70px;
+      right: 24px;
+      font-family: 'Nekst-Black', "Arial", sans-serif;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 30px;
+      line-height: 120%;
+      color: #575757;
+ }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.CardInputInitial_fee{
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 7px;
+}
+
+
+.CardInputPersent {
+   
+  align-self:center;
+    /* Auto layout */
+  
+    /* display: flex;
+    flex-direction: row;
+    align-items: flex-start; */
+    padding: 15px 17px;
+   
+    width: 69px;
+    height: 54px;
+    
+  
+    background: #EBEBEC;
+    border-radius: 16px;
+
+      /* position: absolute;
+      right: 7px;
+      top: 7px;
+      bottom: 7px; */
+       
+
+
+
+
+        border-radius: 16px;
+          border: none;
+         
+        
+          font-family: 'Nekst-Black', "Arial", sans-serif;
+          font-style: normal;
+          font-weight: 900;
+          font-size: 20px;
+           line-height: 120%;
+          color: #575757;
+}
+
+ .CardInputInitial_fee::after {
+    content: '%';
+    position: absolute;
+    z-index: 1;
+    top:38px;
+    right: 55px;
+      font-family: 'Nekst-Black', "Arial", sans-serif;
+        font-style: normal;
+        font-weight: 900;
+        font-size: 20px;
+        line-height: 120%;
+        color: #575757;
+
+  
+ }
+
+
+
+
+
+
+
+
+
+ .CardNameTerm {
+   position: relative;
+ }
+
+ .CardNameTerm:after {
+   content: 'мес.';
+   position: absolute;
+   z-index: 1;
+   top: 70px;
+   right: 24px;
+   font-family: 'Nekst-Black', "Arial", sans-serif;
+   font-style: normal;
+   font-weight: 900;
+   font-size: 30px;
+   line-height: 120%;
+   color: #575757;
+
+  }

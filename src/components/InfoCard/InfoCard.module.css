@@ -1,0 +1,50 @@
+.Card {
+ /* background-color: bisque;
+ border: #575757 solid 1px; */
+  
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+
+ 
+  width: 279px;
+  height: 81px;
+
+  align-items: flex-start; 
+ 
+}
+
+.CardName {
+
+  font-family: 'Gilroy', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  /* identical to box height, or 24px */
+  color: #575757;
+}
+.CardInput {
+  /* 4 467 313 ₽ */
+
+    /* width: 279px;
+    height: 49px; */
+  
+    /* H1 54 */
+    font-family: 'Nekst-Black',"Arial", sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 90%;
+    /* identical to box height, or 49px */
+  
+    color: #575757;
+
+  
+}
+
+ 

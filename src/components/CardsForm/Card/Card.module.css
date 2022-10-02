@@ -1,0 +1,50 @@
+/* Стоимость автомобиля */
+
+.CardName {
+  /* position: absolute;
+  left: 0%;
+  right: 59.25%;
+  top: 0%;
+  bottom: 83.19%; */
+
+  font-family: 'Gilroy',"Arial", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height, or 125% */
+
+
+  /* Серый */
+
+  color: #575757;
+}
+
+.CardInput {
+  /* Shapes / Rounding S */
+  
+  height: 68px;
+  width: 427px;
+  padding: 16px 24px;
+ 
+  border-radius: 16px;
+  border: none;
+  background: #F3F3F4;
+  border-radius: 16px;
+
+
+    /* 3 300 000 */     
+      /* H2 30 */
+      font-family: 'Nekst-Black',"Arial", sans-serif;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 30px;
+      line-height: 36px;
+      color: #575757;
+}
+
+.CardInput:disabled {
+    border: none;
+    background: #F3F3F4;
+}
+

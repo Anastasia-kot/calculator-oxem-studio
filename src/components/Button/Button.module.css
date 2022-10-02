@@ -1,0 +1,142 @@
+
+/* .App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+} */
+ 
+
+.submitButton {
+  border: none;
+
+  /* Frame 3 */
+  
+  
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px 12px;
+    gap: 10px;
+  
+   
+    width: 426px;
+    height: 68px;
+    /* position: absolute;
+    left: 965px;
+    top: 516px;  */
+  
+    background: #FF9514;
+    border-radius: 40px;
+
+}
+
+.submitButton:hover {
+  background: #111111;
+}
+
+.submitButton:active{
+  background: #575757;
+}
+
+.disabled {
+  background: rgba(255, 149, 20, 0.4);
+}
+
+ 
+.submitButtonText{
+    /* Оставить заявку */
+    
+    
+      width: 241px;
+      height: 36px;
+    
+      /* H2 30 */
+      font-family: 'Nekst-Black';
+      font-style: normal;
+      font-weight: 900;
+      font-size: 30px;
+      line-height: 36px;
+      /* identical to box height, or 120% */
+    
+    
+      /* Белый */
+      color: #FFFFFF;
+    
+      /* Inside auto layout */
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+}
+
+
+
+
+
+
+  /* spinner */
+ .spinner {
+   -webkit-animation: rotate 2s linear infinite;
+   animation: rotate 2s linear infinite;
+   width: 50px;
+   height: 50px;
+ }
+
+ .spinner .path {
+   stroke: #ffffff;
+   stroke-linecap: round;
+   -webkit-animation: dash 1.5s ease-in-out infinite;
+   animation: dash 1.5s ease-in-out infinite;
+ }
+
+ @-webkit-keyframes rotate {
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+
+ @keyframes rotate {
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+
+ @-webkit-keyframes dash {
+   0% {
+     stroke-dasharray: 1, 150;
+     stroke-dashoffset: 0;
+   }
+
+   50% {
+     stroke-dasharray: 90, 150;
+     stroke-dashoffset: -35;
+   }
+
+   100% {
+     stroke-dasharray: 90, 150;
+     stroke-dashoffset: -124;
+   }
+ }
+
+ @keyframes dash {
+   0% {
+     stroke-dasharray: 1, 150;
+     stroke-dashoffset: 0;
+   }
+
+   50% {
+     stroke-dasharray: 90, 150;
+     stroke-dashoffset: -35;
+   }
+
+   100% {
+     stroke-dasharray: 90, 150;
+     stroke-dashoffset: -124;
+   }
+ }

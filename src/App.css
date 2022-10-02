@@ -1,38 +1,66 @@
+ @font-face {
+    font-family: 'Nekst-Bold';
+    src: url('fonts/Nekst/Nekst-Bold.eot');
+    src: local('Nekst'), local('Nekst-Bold'),
+        url('fonts/Nekst/Nekst-Bold.eot?#iefix') format('embedded-opentype'),
+        url('fonts/Nekst/Nekst-Bold.woff2') format('woff2'),
+        url('fonts/Nekst/Nekst-Bold.woff') format('woff'),
+        url('fonts/Nekst/Nekst-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+ @font-face {
+   font-family: 'Nekst-Black';
+   src: url('fonts/Nekst/Nekst-Black.eot');
+   src: local('Nekst'), local('Nekst-Black'),
+     url('fonts/Nekst/Nekst-Black.eot?#iefix') format('embedded-opentype'),
+     url('fonts/Nekst/Nekst-Black.woff2') format('woff2'),
+     url('fonts/Nekst/Nekst-Black.woff') format('woff'),
+     url('fonts/Nekst/Nekst-Black.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+ }
+
+:root {
+  --my_grey : #575757;
+}
+ 
 .App {
   text-align: center;
+  /* background-color: white; */
+  background-color: var(white);
+  font-family: "Nekst-Bold", "Arial", sans-serif;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+ 
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
+    /* Рассчитайте стоимость автомобиля в лизинг */
+   text-align: left;
+
+    width: 753px;
+    height: 98px;
+
+  
+    /* H1 54 */
+    font-family: 'Nekst-Black', "Arial", sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 90%;
+    /* or 49px */
+  
+    /* Черный */
+    color: #111111;
+}
+
+.App-main {
+  /* display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap; */
+
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+

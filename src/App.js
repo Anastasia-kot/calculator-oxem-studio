@@ -6,7 +6,7 @@ import { Button } from './components/Button/Button';
 // import { Card } from './components/CardsForm/Card';
 import { CardForm } from './components/CardsForm/CardForm';
 import { InfoCard } from './components/InfoCard/InfoCard';
-import { actions } from './redux/main-reducer.ts';
+import { actions, setFormSubmitTC } from './redux/main-reducer.ts';
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
   useEffect( ()=>{
     dispatch(actions.setMonthlyPayment())
     dispatch(actions.setContractSum())
-    calculatorAPI.sendData(10,10,10)
+    dispatch(setFormSubmitTC(10,10,10))
     
   },[])
 

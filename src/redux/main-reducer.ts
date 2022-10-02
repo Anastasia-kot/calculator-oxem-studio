@@ -1,6 +1,6 @@
+import { calculatorAPI } from './../API/api.ts';
 import { InferActionsTypes } from './redux-store';
 import { Dispatch } from 'react';
-//  import { usersAPI } from "../API/api.ts";
  
  
 
@@ -59,31 +59,46 @@ export const actions = {
 }
 
 
+ 
 
 
-// export const getUsersTC = (count: number, currentPage: number) => {
-//     return async (dispatch: Dispatch<ActionsTypes>) => {
-//         dispatch(actions.setIsFetchingStatus(true));
-//         let response = await usersAPI.getUsersWithAPI(count, currentPage)
-//         // if (response?.items) {
-//             console.log(response)
-//              dispatch(actions.setUsers(response?.items as Array<User>));
-         
-//             dispatch(actions.setTotalUsersCount(response?.totalCount));
-//         // }
-//         dispatch(actions.setIsFetchingStatus(false));
-//     };
-// };
 
-// export const setNewCurrentPage = (newCurrentPage: number, count: number ) => {
-//     return async (dispatch: Dispatch<ActionsTypes>) => {
-//         dispatch(actions.setCurrentPage(newCurrentPage));
-//         dispatch(actions.setIsFetchingStatus(true));
-//         let response = await usersAPI.getUsersWithAPI(count, newCurrentPage);
-//         dispatch(actions.setUsers(response?.items as Array<User>));
-//         dispatch(actions.setIsFetchingStatus(false));
-//     }
-// };
+export const setCostTC = (cost: number) => {
+    return (dispatch: Dispatch<ActionsTypes>) => {
+        dispatch(actions.setCost(cost));
+        dispatch(actions.setMonthlyPayment());
+        dispatch(actions.setContractSum());
+    };
+};
+
+
+export const setInitialFeeTC = (initialFee: number) => {
+    return (dispatch: Dispatch<ActionsTypes>) => {
+        dispatch(actions.setInitialFee(initialFee));
+        dispatch(actions.setMonthlyPayment());
+        dispatch(actions.setContractSum());
+    };
+};
+
+export const setTermTC = (term: number) => {
+    return (dispatch: Dispatch<ActionsTypes>) => {
+        dispatch(actions.setTerm(term));
+        dispatch(actions.setMonthlyPayment());
+        dispatch(actions.setContractSum());
+    };
+};
+
+export const setFormSubmitTC = (cost: number, initialFee: number, term: number)  => {
+    return async (dispatch: Dispatch<ActionsTypes>) => {
+        try {
+            let response = await calculatorAPI.sendData(cost, initialFee, term);
+            alert('Заявка успешно отправлена')
+        } catch (err) {
+            alert(`Произошла ошибка (${err.message}). Пожалуйста, попробуйте позже`)
+        }
+        
+    }
+};
 
 
 

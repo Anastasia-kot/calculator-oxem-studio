@@ -31,18 +31,17 @@ export enum ResponseStatusEnum {
 
 export const calculatorAPI = {
 
-    
 
 
    sendData: async (cost: number, initialFee: number, term: number) => {  // так как сумма договора и ежемесячный платеж - это вычисляемые данные
  
         const response = await instance
-            .post(``, { cost, initialFee, term }, {
+            .post(``,  { cost: cost, initialFee: initialFee, term: term }, {
                 headers: {
                     'Content-Type': 'application/json'
                 }
             });
-        console.log(response)
+        console.log('response', response)
         return response;
     }
 }

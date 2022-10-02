@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Card.module.css';
 import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
 // import { numbersParse } from '../../helpers/numbers-parser';
 
 
@@ -10,6 +11,8 @@ export const CardForm = React.memo(({ name, sum, measure }) => {
             // alert(values.number)
             // alert(JSON.stringify(values, null, 2));
     }
+    
+    const dispatch = useDispatch()
 
    
     return (
@@ -22,6 +25,7 @@ export const CardForm = React.memo(({ name, sum, measure }) => {
                     if (!values.cost) {
                         errors.cost = 'Обязательное поле';
                         values.cost = 1000000
+
                     } else if (
                         values.cost < 1000000 
                     ) {

@@ -5,7 +5,7 @@ import { Formik } from 'formik';
 
 
 
-export const CardForm = React.memo(({ name, summ, measure }) => {
+export const CardForm = React.memo(({ name, sum, measure }) => {
     const handleBlur1 = (values) => {
             // alert(values.number)
             // alert(JSON.stringify(values, null, 2));

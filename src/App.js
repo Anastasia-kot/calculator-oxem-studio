@@ -1,5 +1,6 @@
 import react, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { calculatorAPI } from './API/api.ts';
 import './App.css';
 import { Button } from './components/Button/Button';
 // import { Card } from './components/CardsForm/Card';
@@ -10,16 +11,15 @@ import { actions } from './redux/main-reducer.ts';
 function App() {
 
   const contractSum = useSelector(state => state.mainPage.contractSum)
-  console.log(contractSum)
 
   const monthlyPayment = useSelector(state => state.mainPage.monthlyPayment)
-  console.log(monthlyPayment)
 
   const dispatch = useDispatch()
 
   useEffect( ()=>{
     dispatch(actions.setMonthlyPayment())
     dispatch(actions.setContractSum())
+    calculatorAPI.sendData(10,10,10)
     
   },[])
 

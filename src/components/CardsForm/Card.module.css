@@ -1,14 +1,18 @@
-.form{
+.form {
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
+  flex-direction: row;
 
 }
 
 .CardName {
-   text-align: left;
+  text-align: left;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 24px;
 
-  font-family: 'Gilroy',"Arial", sans-serif;
+  font-family: 'Gilroy', "Arial", sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -23,50 +27,60 @@
 
 .CardInput {
   /* Shapes / Rounding S */
-  
+
   height: 68px;
   width: 427px;
   padding: 16px 24px;
- 
+  box-sizing: border-box;
+
   border-radius: 16px;
   border: none;
   background: #F3F3F4;
   border-radius: 16px;
 
 
-    /* 3 300 000 */     
-      /* H2 30 */
-      font-family: 'Nekst-Black',"Arial", sans-serif;
-      font-style: normal;
-      font-weight: 900;
-      font-size: 30px;
-      line-height: 36px;
-      color: #575757;
-}
-
-.CardInput:disabled {
-    border: none;
-    background: #F3F3F4;
+  /* 3 300 000 */
+  /* H2 30 */
+  font-family: 'Nekst-Black', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 36px;
+  color: #575757;
 }
 
 
+/* работают */ 
+.CardInput:focus{
+border: #F3F3F4 2px solid;
+background: white 
+ }
 
-.CardNameCost{
+.CardInput:disabled, .CardInputInitial_fee:disabled {
+  /* opacity: 0.4; */
+  }
+
+
+
+.CardNameCost {
   position: relative;
 }
+
 .CardNameCost:after {
-     content: '₽';
-      position: absolute;
-      z-index: 1;
-      top: 70px;
-      right: 24px;
-      font-family: 'Nekst-Black', "Arial", sans-serif;
-      font-style: normal;
-      font-weight: 900;
-      font-size: 30px;
-      line-height: 120%;
-      color: #575757;
-  background: #F3F3F4; }
+  content: '₽';
+  position: absolute;
+  z-index: 1;
+  top: 58px;
+  right: 24px;
+
+  font-family: 'Nekst-Black', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 120%;
+  color: #575757;
+}
+   
 
 
 
@@ -83,71 +97,65 @@
 
 
 
-
-.CardInputInitial_fee{
+.CardInputInitial_fee {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-right: 7px;
+  box-sizing: border-box;
+  
+
+
+    background: rgb(243, 243, 244, 0.4);
+    color: rgb(87, 87, 87, 0.4);
+
+
 }
 
 
-.CardInputPersent {
-   
-  align-self:center;
-    /* Auto layout */
-  
-    /* display: flex;
-    flex-direction: row;
-    align-items: flex-start; */
-    padding: 15px 17px;
-   
-    width: 69px;
-    height: 54px;
-    
-  
-    background: #EBEBEC;
-    border-radius: 16px;
+.CardInputPercent {
 
-      /* position: absolute;
-      right: 7px;
-      top: 7px;
-      bottom: 7px; */
-       
+  align-self: center;
+
+  padding: 15px 17px;
+
+  width: 69px;
+  height: 54px;
+  box-sizing: border-box;
+
+  background: #EBEBEC;
+  border-radius: 16px;
 
 
+  border: none;
 
 
-        border-radius: 16px;
-          border: none;
-         
-        
-          font-family: 'Nekst-Black', "Arial", sans-serif;
-          font-style: normal;
-          font-weight: 900;
-          font-size: 20px;
-           line-height: 120%;
-          color: #575757;
+  font-family: 'Nekst-Black', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 120%;
+  color: #575757;
+ 
+
 }
 
- .CardInputInitial_fee::after {
-    content: '%';
-    position: absolute;
-    z-index: 1;
-    top:38px;
-    right: 55px;
-      font-family: 'Nekst-Black', "Arial", sans-serif;
-        font-style: normal;
-        font-weight: 900;
-        font-size: 20px;
-        line-height: 120%;
-        color: #575757;
-
-  
- }
+.CardInputInitial_fee:after {
+  content: '%';
+  position: absolute;
+  z-index: 1;
+  top: 22px;
+  right: 20px;
+  font-family: 'Nekst-Black', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 120%;
+  color: #575757;
 
 
+}
 
 
 
@@ -155,22 +163,90 @@
 
 
 
- .CardNameTerm {
-   position: relative;
- }
 
- .CardNameTerm:after {
-   content: 'мес.';
-   position: absolute;
-   z-index: 1;
-   top: 70px;
-   right: 24px;
-   font-family: 'Nekst-Black', "Arial", sans-serif;
-   font-style: normal;
-   font-weight: 900;
-   font-size: 30px;
-   line-height: 120%;
-   color: #575757;
-  background: #F3F3F4;
+
+.CardNameTerm {
+  position: relative;
+}
+
+.CardNameTerm:after {
+  content: 'мес.';
+  position: absolute;
+  z-index: 1;
+  top: 58px;
+  right: 24px;
+  font-family: 'Nekst-Black', "Arial", sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 30px;
+  line-height: 120%;
+  color: #575757;
+}
+
+
+
+
+
+
+
+/*  Media Queries */
+
+/* 320...767 px */
+@media screen and (max-width: 767px) {
+.form {
+    gap: 25px;
   }
-  
+  .CardInput {
+    width: 280px;
+  }
+  .CardInput,
+  .CardInputPercent,
+  .CardNameTerm:after,
+  .CardInputInitial_fee:after,
+  .CardNameCost:after {
+    font-size: 22px;
+    line-height: 20px;
+    color: #333E48;
+  }
+
+.CardInputInitial_fee{
+      background: rgb(243, 243, 244, 0.4);
+        color: rgb(87, 87, 87, 0.4);
+}
+
+  .CardNameTerm:after,
+  .CardNameCost:after {
+    top: 50px
+  }
+
+  .CardInputInitial_fee:after {
+    top: 24px;
+   }
+
+  .CardName {
+    font-size: 14px;
+    line-height: 136%;
+    margin-bottom: 8px;
+  }
+}
+
+/* 768...1023 px */
+@media screen and (min-width: 768px) {
+  .CardInput {
+    width: 696px;
+  }
+}
+
+/* 1024...1439 px */
+@media screen and (min-width: 1024px) {
+  .CardInput {
+    width: 928px;
+  }
+}
+
+/* 1400 ...infinity */
+@media screen and (min-width: 1440px) {
+  .CardInput {
+    width: 427px;
+  }
+}

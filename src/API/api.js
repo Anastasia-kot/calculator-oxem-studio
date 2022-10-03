@@ -8,32 +8,9 @@ const instance = axios.create({
     }
 })
 
- type ResponseType = {
-    data: {
-        data: any
-        fieldsErrors: Array<any>,
-        messages: Array<any>,
-        resultCode:  ResultCodeEnum,
-    },
-    status: number
-    statusText: string
-}
-
-export enum ResultCodeEnum {
-    success = 0,
-    error = 1,
-}
-export enum ResponseStatusEnum {
-    success = 200,
-    error = 400,
-}
-
-
 export const calculatorAPI = {
 
-
-
-   sendData: async (cost: number, initialFee: number, term: number) => {  // так как сумма договора и ежемесячный платеж - это вычисляемые данные
+   sendData: async (cost, initialFee, term) => {  // так как сумма договора и ежемесячный платеж - это вычисляемые данные
  
         const response = await instance
             .post(``,  { cost: cost, initialFee: initialFee, term: term }, {

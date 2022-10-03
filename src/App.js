@@ -1,6 +1,6 @@
 import react, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { calculatorAPI } from './API/api.ts';
+import { calculatorAPI } from './API/api.js';
 import './App.css';
 import { Button } from './components/Button/Button';
 // import { Card } from './components/CardsForm/Card';
@@ -18,33 +18,35 @@ function App() {
 
   useEffect( ()=>{
     dispatch(actions.setMonthlyPayment())
-    dispatch(actions.setContractSum())
-    dispatch(setFormSubmitTC(10,10,10))
-    
-  },[])
+    dispatch(actions.setContractSum())    
+  }, [])
 
 
   return (
+    <div className="App-wrapper">
     <div className="App">
+
         <h1 className="App-header"> 
-          Рассчитайте стоимость автомобиля в лизинг
+          Рассчитайте стоимость автомобиля в&nbsp;лизинг
         </h1>
+
         <div className="App-main">
-                  {/* <Card name='Стоимость автомобиля' />
-                  <Card name='Первоначальный взнос' />
-                  <Card name='Срок лизинга' /> */}
-                  <CardForm/> 
+
+          <div className="App-cardForm">
+            <CardForm  /> 
+          </div>
                   
-                <div className="App-InfoCards">
-                  <InfoCard name='Сумма договора лизинга' sum={contractSum} measure ='₽'/>
-                  <InfoCard name='Ежемесячный платеж от' sum={monthlyPayment} measure ='₽'/>
-                </div>
+          <div className="App-infoCards-Button">
+            <InfoCard className="App-infoCard" name='Сумма договора лизинга' sum={contractSum} measure ='₽'/>
+            <InfoCard className="App-infoCard" name='Ежемесячный платеж от' sum={monthlyPayment} measure ='₽'/>
+            <Button className="App-button" name={'Оставить заявку'} isFetching={false} /> 
+
+          </div>
                   
-                  
-                <Button name={'Оставить заявку'} isFetching={false} /> 
        
         </div>  
          
+    </div>
     </div>
   );
 }

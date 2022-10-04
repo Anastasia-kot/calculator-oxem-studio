@@ -42,7 +42,7 @@
     /* Оставить заявку */
     
     
-      width: 241px;
+      /* width: 241px; */
       height: 36px;
       margin: 0;
       padding: 0;
@@ -144,7 +144,7 @@
    .submitButtonText{
     font-size: 22px;
     line-height: 20px;
-    width: 177px;
+    /* width: 177px; */
       height: 20px;
    }
  }

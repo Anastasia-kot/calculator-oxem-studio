@@ -6,6 +6,10 @@
 
 }
 
+.CardLabel {
+  position: relative;
+}
+
 .CardName {
   text-align: left;
   padding: 0;
@@ -50,15 +54,94 @@
 }
 
 
-/* работают */ 
-.CardInput:focus{
-border: #F3F3F4 2px solid;
-background: white 
+.CardInput:focus {
+  border: #F3F3F4 2px solid;
+  background: white
+}
+
+
+ 
+
+.CardRange {
+    position: absolute;
+      bottom: -21px;
+      left: 13px;
+      /* background-color: #FF9514; */
+
+  -webkit-appearance: none;
+  width: 93%;
+   
+  height: 2px;
+  background-color: #E1E1E1;
+  outline: none;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  cursor: pointer;
+
+
+
+  /* ??? */
+  -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+}
+
+.CardInputInitial_fee .CardRange {
+  bottom: 0;
+}
+
+
+.CardRange:hover {
+  opacity: 1;
+}
+
+
+.CardRange::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: #FF9514;
+}
+
+ 
+
+  
+    .CardRange::-moz-range-track {
+      width: 93%;
+      bottom: 0;
+      height: 2px;
+      background-color: #E1E1E1;
+    }
+  
+    .CardRange::-moz-range-thumb {
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        background: #FF9514;
+        border: none;
+    }
+
+
+
+
+
+
+
+.error{
+margin-top: 10px;
+ width: 280px;
+
  }
 
-.CardInput:disabled, .CardInputInitial_fee:disabled {
-  /* opacity: 0.4; */
-  }
+
+
+
+
+
+
 
 
 
@@ -80,7 +163,7 @@ background: white
   line-height: 120%;
   color: #575757;
 }
-   
+
 
 
 
@@ -104,11 +187,11 @@ background: white
   align-items: center;
   padding-right: 7px;
   box-sizing: border-box;
-  
 
 
-    background: rgb(243, 243, 244, 0.4);
-    color: rgb(87, 87, 87, 0.4);
+
+  background: rgb(243, 243, 244, 0.4);
+  color: rgb(87, 87, 87, 0.4);
 
 
 }
@@ -137,7 +220,7 @@ background: white
   font-size: 20px;
   line-height: 120%;
   color: #575757;
- 
+
 
 }
 
@@ -193,12 +276,14 @@ background: white
 
 /* 320...767 px */
 @media screen and (max-width: 767px) {
-.form {
+  .form {
     gap: 25px;
   }
-  .CardInput {
+
+  .CardInput,.error {
     width: 280px;
   }
+
   .CardInput,
   .CardInputPercent,
   .CardNameTerm:after,
@@ -209,10 +294,10 @@ background: white
     color: #333E48;
   }
 
-.CardInputInitial_fee{
-      background: rgb(243, 243, 244, 0.4);
-        color: rgb(87, 87, 87, 0.4);
-}
+  .CardInputInitial_fee {
+    background: rgb(243, 243, 244, 0.4);
+    color: rgb(87, 87, 87, 0.4);
+  }
 
   .CardNameTerm:after,
   .CardNameCost:after {
@@ -221,7 +306,7 @@ background: white
 
   .CardInputInitial_fee:after {
     top: 24px;
-   }
+  }
 
   .CardName {
     font-size: 14px;
@@ -232,21 +317,22 @@ background: white
 
 /* 768...1023 px */
 @media screen and (min-width: 768px) {
-  .CardInput {
+  .CardInput,.error {
     width: 696px;
   }
 }
 
 /* 1024...1439 px */
 @media screen and (min-width: 1024px) {
-  .CardInput {
+  .CardInput,.error {
     width: 928px;
   }
 }
 
 /* 1400 ...infinity */
 @media screen and (min-width: 1440px) {
-  .CardInput {
+  .CardInput ,.error {
     width: 427px;
   }
+
 }

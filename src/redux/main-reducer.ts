@@ -10,7 +10,8 @@ let initialState = {
     initialFee: 10 as number , //percent
     term: 12 as number ,  //months
     contractSum: 0 as number ,
-    monthlyPayment: 0 as number ,  
+    monthlyPayment: 0 as number , 
+    isFetching: false as boolean 
 };
 
 const mainReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
@@ -48,7 +49,11 @@ const mainReducer = (state = initialState, action: ActionsTypes): InitialStateTy
                 ...state,
                 monthlyPayment: monthPay
               }
-
+        case 'MAIN-REDUCER/SET_IS_FETCHING':
+            return {
+                ...state,
+                isFetching: action.isFetching
+            }
         default:
             return state;
     }
@@ -62,6 +67,7 @@ export const actions = {
     setTerm: (term: number) => ({ type: 'MAIN-REDUCER/SET_TERM', term } as const),
     setContractSum: () => ({ type: 'MAIN-REDUCER/SET_CONTRACT_SUM'  } as const),
     setMonthlyPayment: () => ({ type: 'MAIN-REDUCER/SET_MONTHLY_PAYMENT'  } as const),
+    setIsFetching: (isFetching: boolean) => ({ type: 'MAIN-REDUCER/SET_IS_FETCHING', isFetching } as const),
 }
 
 
@@ -96,13 +102,15 @@ export const setTermTC = (term: number) => {
 
 export const setFormSubmitTC = (cost: number, initialFee: number, term: number)  => {
     return async (dispatch: Dispatch<ActionsTypes>) => {
+        dispatch(actions.setIsFetching(true))
         try {
             await calculatorAPI.sendData(cost, initialFee, term);
             alert('Заявка успешно отправлена')
         } catch (err) {
             alert(`Произошла ошибка (${err.message}). Пожалуйста, попробуйте позже`)
         }
-        
+        dispatch(actions.setIsFetching(false))
+
     }
 };
 

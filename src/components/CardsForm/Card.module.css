@@ -8,6 +8,7 @@
 
 .CardLabel {
   position: relative;
+  height: 122px;
 }
 
 .CardName {
@@ -64,10 +65,7 @@
 
 .CardRange {
     position: absolute;
-      bottom: -21px;
-      left: 13px;
-      /* background-color: #FF9514; */
-
+ 
   -webkit-appearance: none;
   width: 93%;
    
@@ -103,7 +101,7 @@
   height: 20px;
   border-radius: 100%;
   background: #FF9514;
-}
+ }
 
  
 
@@ -272,6 +270,11 @@ margin-top: 10px;
 
 
 
+
+
+
+
+
 /*  Media Queries */
 
 /* 320...767 px */
@@ -313,6 +316,14 @@ margin-top: 10px;
     line-height: 136%;
     margin-bottom: 8px;
   }
+
+.CardRange {
+   bottom:25px;
+   left: 13px;
+   width: 253px;
+  }
+
+
 }
 
 /* 768...1023 px */
@@ -320,6 +331,11 @@ margin-top: 10px;
   .CardInput,.error {
     width: 696px;
   }
+    .CardRange {
+      bottom: 8px;
+      left: 13px;
+      width: 667px;
+    }
 }
 
 /* 1024...1439 px */
@@ -327,6 +343,11 @@ margin-top: 10px;
   .CardInput,.error {
     width: 928px;
   }
+      .CardRange {
+      bottom: 8px;
+      left: 13px;
+      width: 900px;
+    }
 }
 
 /* 1400 ...infinity */
@@ -334,5 +355,10 @@ margin-top: 10px;
   .CardInput ,.error {
     width: 427px;
   }
+       .CardRange {
+      bottom: 8px;
+      left: 13px;
+      width: 400px;
+    }
 
 }

@@ -153,8 +153,8 @@ export const CardForm = React.memo(({ name, sum, measure }) => {
                         onSubmit={handleSubmit}
                         className={styles.form}>
 
-                        <div>
-                        <label className={styles.CardLabel}>
+                        <div className={styles.CardLabel}>
+                        <label >
                             <p className={styles.CardName + ' ' + styles.CardNameCost}> Стоимость автомобиля </p>
                             <input
                                 min='1000000'
@@ -186,8 +186,8 @@ export const CardForm = React.memo(({ name, sum, measure }) => {
 
 
 
-                        <div>
-                            <label className={styles.CardLabel}>
+                        <div className={styles.CardLabel}>
+                            <label >
                             <p className={styles.CardName}> Первоначальный взнос </p>
                             <div className={styles.CardInput + ' ' + styles.CardInputInitial_fee} disabled={true}>
                                 <span>{values.initial_fee * values.cost / 100}</span>
@@ -227,8 +227,8 @@ export const CardForm = React.memo(({ name, sum, measure }) => {
 
 
 
-                        <div>
-                            <label className={styles.CardLabel}>
+                        <div className={styles.CardLabel}>
+                            <label >
                             <p className={styles.CardName + ' ' + styles.CardNameTerm}> Срок лизинга </p>
                             <input
                                 className={styles.CardInput}

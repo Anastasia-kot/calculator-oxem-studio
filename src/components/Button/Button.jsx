@@ -1,6 +1,4 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { setFormSubmitTC } from '../../redux/main-reducer.ts';
 import styles from './Button.module.css';
 
  

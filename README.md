@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Онлайн-калькулятор для лизинга авто
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Использованные технологии: 
+- задание выполнено за 12 часов
+- React
+- деплой на GitHub Pages
+- pixel-perfect верстка по макету Figma (https://www.figma.com/community/file/1159127080169628640)
+- использованы шрифты: Nekst-Black, Gilroy
+- теги Title и Description - прописаны релевантные значения
+- все стили вынесены в отдельные CSS-файлы (module.css)
+- нет  конфликта CSS-стилей
+- кроссбраузерность (Google Chrome, Android, Mobile Safari, Яндекс.Браузер, Firefox, Opera)
+ 
 
-## Available Scripts
+## Функционал калькулятора: 
+- Калькулятор должен инициализироваться с указанными значениями по умолчанию;
+- В каждое поле можно ввести значение как с клавиатуры, так и с помощью ползунка;
+- При выборе значения с помощью ползунка, все числа должны пересчитываться динамически в процессе движения ползунка, а не только после его остановки;
+- У каждого поля есть максимальное и минимальное значение — ползунок должен ограничивать пользователя в выборе данных, а при вводе некорректного значения с клавиатуры, оно должно сбрасываться к ближайшему корректному числу (максимуму или минимуму).
+    Для поля “Стоимость автомобиля” границы: 1 млн.руб. — 6 млн.руб.;
+    Для поля “Первоначальный взнос” границы: 10% - 60% (здесь ввод происходит именно в процентах от стоимости, а не рублях; рубли - результат расчета от введенной стоимости автомобиля);
+    Для поля “Срок лизинга” границы: 1 - 60 месяцев;
+- Формулы расчета для полей:
+    Процентная ставка = 3.5%
+    Для поля “Первоначальный взнос”:     Первоначальный взнос (в процентах) * Стоимость автомобиля
+    Для поля “Сумма договора лизинга”: Первоначальный взнос + Срок кредита в месяцах * Ежемесячный платеж
+    Для поля “Ежемесячный платеж от”:(Стоимость автомобиля - Первоначальный взнос) * ((Процентная ставка * (1 + Процентная ставка)^Срок кредита в месяцах) / ((1 + Процентная ставка)^Срок кредита в месяцах - 1)) 
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    const monthPay = (price - initial) * ((0.035 * Math.pow((1 + 0.035), months)) / (Math.pow((1 + 0.035), months) - 1));
+- По кнопке “Оформить заявку” должен формироваться запрос, который отправляет все данные калькулятора на бэкенд, например, чтобы потом backend мог использовать эти данные для передачи в CRM-систему.
+URL для запроса: https://hookb.in/eK160jgYJ6UlaRPldJ1P
+Метод запроса: POST
+Заголовок Content-Type: application/json
+Все данные с формы передавать в JSON-формате в теле запроса.
+Пример тела запроса:
+{
+  "car_coast": 4000000,
+  "initail_payment": 400000,
+  "initail_payment_percent": 10,
+  "lease_term": 24,
+  "total_sum": 5000000,
+  "monthly_payment_from": 30000
+}
+API всегда возвращает:
+{
+  "success": true
+}
+- В момент клика по кнопке кнопка должна блокироваться от возможности повторной отправки данных на время выполнения запроса к бэкенду, а внутри кнопки отображаться прелоадер. Инпуты и слайдеры на время отправки должны блокироваться.

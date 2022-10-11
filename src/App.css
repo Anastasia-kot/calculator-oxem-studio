@@ -155,26 +155,10 @@ input[type='number'] {
    margin-bottom: 25px;
  }
 
- .App-infoCards-Button {
-   display: grid;
-   grid-template-areas: "sum "
-     "payment"
-     "button ";
-   row-gap: 29px;
- }
 
- .App-infoCard:first-child {
-   grid-area: "sum";
- }
 
- .App-infoCard:last-child {
-   grid-area: "payment";
- }
 
- .App-button {
-   grid-area: "button";
- }
-
+ 
 
 
 
@@ -210,11 +194,7 @@ input[type='number'] {
      margin-bottom: 25px;
    }
 
-   .App-infoCards-Button {
-     grid-template-areas: "sum  "
-       "payment"
-       "button";
-   }
+ 
  }
 
  /* 768...1023 px */
@@ -238,11 +218,7 @@ input[type='number'] {
      margin-bottom: 44px;
    }
 
-   .App-infoCards-Button {
-     grid-template-areas: "sum payment "
-       "button button";
-          row-gap: 44px;
-   }
+
  }
 
  /* 1024...1439 px */
@@ -266,11 +242,7 @@ input[type='number'] {
      margin-bottom: 44px;
    }
 
-   .App-infoCards-Button {
-     grid-template-areas: "sum payment "
-       "button button";
-          row-gap: 44px;
-   }
+
  }
 
  /* 1400 ...infinity */
@@ -293,10 +265,5 @@ input[type='number'] {
      margin-bottom: 51px;
    }
 
-   .App-infoCards-Button {
 
-     display: flex;
-     justify-content: space-between;
-     align-items: center;
-   }
  }

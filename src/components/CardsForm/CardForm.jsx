@@ -2,17 +2,29 @@ import React, {  useState } from 'react';
 import styles from './Card.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCostTC, setInitialFeeTC, setTermTC } from '../../redux/main-reducer.ts';
+import { InputCard } from '../InputCard/InputCard';
+import { InfoCard } from '../InfoCard/InfoCard';
+import { Button } from '../Button/Button';
+import { setFormSubmitTC } from '../../redux/main-reducer.ts';
 
 
 
-export const CardForm = React.memo(({ name, sum, measure }) => {
+export const CardForm = React.memo(() => {
    
     const dispatch = useDispatch()
-
+//для ввода
     const cost = useSelector(state => state.mainPage.cost)
     const initialFee = useSelector(state => state.mainPage.initialFee)
     const term = useSelector(state => state.mainPage.term)
- 
+
+//для расчетных значений и кнопки
+    const contractSum = useSelector(state => state.mainPage.contractSum)
+    const monthlyPayment = useSelector(state => state.mainPage.monthlyPayment)
+    const isFetching = useSelector(state => state.mainPage.isFetching)
+
+    const onClickFunctionForButton = () => {
+        dispatch(setFormSubmitTC(cost, initialFee, term))
+    }
  
    const [values, setValues] = useState({
        cost: cost,
@@ -26,12 +38,6 @@ export const CardForm = React.memo(({ name, sum, measure }) => {
         term: ''
    })
    
- 
-   const touched = {
-       cost: false,
-       initialFee: false,
-       term: false
-   }
 
     const handleSubmit = () => {}
     const handleChange = {
@@ -86,16 +92,6 @@ export const CardForm = React.memo(({ name, sum, measure }) => {
         },
 
         handleBlurTerm: (e) => {
-            if (
-                (values.term % 1 !== 0)
-            ) {
-                errors.term = 'Срок лизинга должен быть округлен до целях месяцев';
-                values.term = Math.round(values.term)
-                values.term_range = Math.round(values.term)
-                dispatch(setTermTC(values.term))
-            }  
-
-
             if (!e.currentTarget.value) {
                 setValues((actual) => { return { ...actual, term: 1 } })
                 setErrors((actual) => { return { ...actual, term: 'Обязательное поле' } })
@@ -109,125 +105,60 @@ export const CardForm = React.memo(({ name, sum, measure }) => {
                 setErrors((actual) => { return { ...actual, term: 'Срок лизинга должен быть не более 60 месяцев' } })
                 dispatch(setTermTC(60))
             } else if (e.currentTarget.value % 1 !== 0) {
-                setValues((actual) => { return { ...actual, term: Math.round(e.currentTarget.value) } })
+                const newTerm = Math.round(e.currentTarget.value)
+                setValues((actual) => { return { ...actual, term: newTerm } })
                 setErrors((actual) => { return { ...actual, term: 'Срок лизинга должен быть округлен до целях месяцев' } })
-                dispatch(setTermTC(Math.round(e.currentTarget.value)))
-            } 
+                dispatch(setTermTC(newTerm))
+            }  
         }
 
     }
  
 
-    return (
-                   <form 
-                        onSubmit={handleSubmit}
-                        className={styles.form}>
+return ( 
+    <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.formInputs}>
+        <InputCard 
+                min='1000000' 
+                max='6000000' 
+                handleChange={handleChange.handleChangeCost}
+                handleBlur={handleBlur.handleBlurCost}
+                value={values.cost} 
+                error={errors.cost}
+                name='cost'
+                label_text='Стоимость автомобиля'/>
+                
 
-                        <div className={styles.CardLabel}>
-                        <label >
-                            <p className={styles.CardName + ' ' + styles.CardNameCost}> Стоимость автомобиля </p>
-                            <input
-                                min='1000000'
-                                max='6000000' 
-                                className={styles.CardInput }
-                                type="number"
-                                name="cost"
-                                onChange={handleChange.handleChangeCost}
-                                onBlur={handleBlur.handleBlurCost}
-                                value={values.cost} 
-                                />
-                            <input 
-                                min='1000000'
-                                max='6000000'
-                                className={styles.CardRange}
-                                type="range"
-                                name="cost_range"
-                                onChange={handleChange.handleChangeCost}
-                                onBlur={handleBlur.handleBlurCost}
-                                value={values.cost} 
-                                />
+        <InputCard
+                min='10'
+                max='60'
+                handleChange={handleChange.handleChangeInitialFee}
+                handleBlur={handleBlur.handleBlurInitialFee}
+                value={values.initialFee}
+                error={errors.initialFee}
+                name='initial_fee'
+                value_cost={values.cost} 
+                label_text='Срок лизинга '/>
 
-                             
-                        </label>
-                            <div className={styles.error}> {errors.cost}
-                                {/* {errors.cost && (touched.cost || touched.cost_range) && errors?.cost }  */}
-                             </div> 
-                        </div>
+ 
 
+            <InputCard
+                min='1'
+                max='60'
+                handleChange={handleChange.handleChangeTerm}
+                handleBlur={handleBlur.handleBlurTerm}
+                value={values.term}
+                error={errors.term}
+                name='term' 
+                label_text='Первоначальный взнос'/>
+                      
+        </div>
+        <div className={styles.AppInfoCardsButton}>
+            <InfoCard className={styles.AppInfoCard} name='Сумма договора лизинга' sum={contractSum} measure='₽' />
+            <InfoCard className={styles.AppInfoCard} name='Ежемесячный платеж от' sum={monthlyPayment} measure='₽' />
+            <Button className={styles.AppButton}  name={'Оставить заявку'} isFetching={isFetching} onClickFunc={onClickFunctionForButton} />
+        </div>
 
-
-
-
-                        <div className={styles.CardLabel}>
-                            <label >
-                            <p className={styles.CardName}> Первоначальный взнос </p>
-                            <div className={styles.CardInput + ' ' + styles.CardInputInitial_fee} disabled={true}>
-                                <span>{values.initialFee * values.cost / 100}</span>
-                                <input
-                                        min='10'
-                                        max='60'
-                                    className={styles.CardInputPercent}
-                                    type="number"
-                                    name="initial_fee"
-                                    onChange={handleChange.handleChangeInitialFee}
-                                    onBlur={handleBlur.handleBlurInitialFee}
-                                    value={values.initialFee}
-                                    disabled={false}
-                                />
-
-                                    <input
-                                        min='10'
-                                        max='60'
-                                        className={styles.CardRange}
-                                        type="range"
-                                        name="initial_fee_range"
-                                        onChange={handleChange.handleChangeInitialFee}
-                                        onBlur={handleBlur.handleBlurInitialFee}
-                                        value={values.initialFee}
-                                    />
-
-                            </div>
-
-                          
-                        </label>
-                            <div className={styles.error}>{errors.initialFee}  {errors.initialFee && touched.initialFee && errors.initialFee}</div>
-
-                            </div>
-
-
-
-
-
-
-                        <div className={styles.CardLabel}>
-                            <label >
-                            <p className={styles.CardName + ' ' + styles.CardNameTerm}> Срок лизинга </p>
-                            <input
-                                className={styles.CardInput}
-                                type="number"
-                                name="term"
-                                onChange={handleChange.handleChangeTerm}
-                                onBlur={handleBlur.handleBlurTerm}
-                                value={values.term}
-                            />
-                                <input
-                                    min='1'
-                                    max='60'
-                                    className={styles.CardRange}
-                                    type="range"
-                                    name="term_range"
-                                    onChange={handleChange.handleChangeTerm}
-                                    onBlur={handleBlur.handleBlurTerm}
-                                    value={values.term}
-                                />           
-
-                            </label>
-                            <div className={styles.error}> {errors.term} {errors.term && touched.term && errors.term}</div>
-                        </div>
-
-                   
-                        
                            
-                    </form>
-    )
+</form>)
 })

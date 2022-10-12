@@ -16,7 +16,8 @@
 
  ## Скриншоты
 
-![image](https://user-images.githubusercontent.com/96003382/195368134-29828394-5c6d-48a6-8f44-dc3a6fcc7c0f.png)
+![image](https://user-images.githubusercontent.com/96003382/195368340-5767be18-e6e7-461f-abea-863f69b8b0b7.png)
+![image](https://user-images.githubusercontent.com/96003382/195368524-3ad588e0-fc0d-44fe-9e63-1cebcaee900d.png)
 
 
  ## Требования к адаптивности

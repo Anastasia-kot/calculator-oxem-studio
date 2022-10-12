@@ -150,7 +150,7 @@ return (
                 value={values.term}
                 error={errors.term}
                 name='term' 
-                label_text='Срок лизинга'/>
+                label_text='Срок лизинга' />
                       
         </div>
         <div className={styles.AppInfoCardsButton}>

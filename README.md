@@ -6,12 +6,12 @@
 + по макетам Figma  https://www.figma.com/community/file/1159127080169628640 
 + module CSS для стилей
 + кроссбраузерность: 
-    ++ Google Chrome
-    ++ Android
-    ++ Mobile Safari
-    ++ Яндекс.Браузер
-    ++ Firefox
-    ++ Opera
+    + Google Chrome
+    + Android
+    + Mobile Safari
+    + Яндекс.Браузер
+    + Firefox
+    + Opera
 + валидация https://validator.w3.org/
 
  ### Требования к адаптивности

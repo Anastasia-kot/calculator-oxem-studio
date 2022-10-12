@@ -1,10 +1,8 @@
-# Калькулятор лизинга авто 
- https://anastasia-kot.github.io/calculator-oxem-studio/
+# Калькулятор лизинга авто https://anastasia-kot.github.io/calculator-oxem-studio/
 
 ## Использованный стек/ технические требования:
 — React, Webpack
-— по макетам Figma  https://www.figma.com/community/file/1159127080169628640
-
+— по макетам Figma  https://www.figma.com/community/file/1159127080169628640 
 — module CSS для стилей
 — кроссбраузерность: 
     Google Chrome

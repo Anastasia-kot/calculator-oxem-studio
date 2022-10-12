@@ -3,16 +3,10 @@
 
 ## Использованный стек/ технические требования:
 + React, Webpack
-+ по макетам Figma  https://www.figma.com/community/file/1159127080169628640 
++ по [макету Figma](https://www.figma.com/community/file/1159127080169628640 "https://www.figma.com/community/file/1159127080169628640") 
 + module CSS для стилей
-+ кроссбраузерность: 
-    + Google Chrome
-    + Android
-    + Mobile Safari
-    + Яндекс.Браузер
-    + Firefox
-    + Opera
-+ валидация https://validator.w3.org/
++ кроссбраузерность: Google Chrome, Android,  Mobile Safari,  Яндекс.Браузер,  Firefox, Opera
++ [валидация на validator.w3.org](https://validator.w3.org/ "https://validator.w3.org/")
 
  ## Скриншоты
 ###  ширина 1440+ 

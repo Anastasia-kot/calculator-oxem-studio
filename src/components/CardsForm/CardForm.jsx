@@ -138,7 +138,7 @@ return (
                 error={errors.initialFee}
                 name='initial_fee'
                 value_cost={values.cost} 
-                label_text='Срок лизинга '/>
+                label_text='Первоначальный взнос'/>
 
  
 
@@ -150,7 +150,7 @@ return (
                 value={values.term}
                 error={errors.term}
                 name='term' 
-                label_text='Первоначальный взнос'/>
+                label_text='Срок лизинга'/>
                       
         </div>
         <div className={styles.AppInfoCardsButton}>

@@ -1,0 +1,302 @@
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article>*+* {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:active,
+:hover,
+:focus {
+  outline: 0;
+  outline-offset: 0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+ @font-face {
+   font-family: 'Nekst-Bold';
+   src: url('fonts/Nekst/Nekst-Bold.eot');
+   src: local('Nekst'), local('Nekst-Bold'),
+     url('fonts/Nekst/Nekst-Bold.eot?#iefix') format('embedded-opentype'),
+     url('fonts/Nekst/Nekst-Bold.woff2') format('woff2'),
+     url('fonts/Nekst/Nekst-Bold.woff') format('woff'),
+     url('fonts/Nekst/Nekst-Bold.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+ }
+
+ @font-face {
+   font-family: 'Nekst-Black';
+   src: url('fonts/Nekst/Nekst-Black.eot');
+   src: local('Nekst'), local('Nekst-Black'),
+     url('fonts/Nekst/Nekst-Black.eot?#iefix') format('embedded-opentype'),
+     url('fonts/Nekst/Nekst-Black.woff2') format('woff2'),
+     url('fonts/Nekst/Nekst-Black.woff') format('woff'),
+     url('fonts/Nekst/Nekst-Black.ttf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+ }
+
+
+ .App-wrapper {
+   width: 100%;
+   background-color: rgb(255, 255, 255);
+   display: block;
+ }
+
+ .App {
+   background-color: rgb(255, 255, 255);
+   font-family: "Nekst-Bold", "Arial", sans-serif;
+   display: block;
+ }
+
+ .App-header {
+   /* Рассчитайте стоимость автомобиля в лизинг */
+   text-align: left;
+   width: 753px;
+   height: 98px;
+   margin: 0;
+   padding: 0;
+   /* H1 54 */
+   font-family: 'Nekst-Black', "Arial", sans-serif;
+   font-style: normal;
+   font-weight: 900;
+   font-size: 54px;
+   line-height: 90%;
+   /* or 49px */
+   color: #111111;
+ }
+
+
+
+
+ .App-cardForm {
+   margin-bottom: 25px;
+ }
+
+ .App-infoCards-Button {
+   display: grid;
+   grid-template-areas: "sum "
+     "payment"
+     "button ";
+   row-gap: 29px;
+ }
+
+ .App-infoCard:first-child {
+   grid-area: "sum";
+ }
+
+ .App-infoCard:last-child {
+   grid-area: "payment";
+ }
+
+ .App-button {
+   grid-area: "button";
+ }
+
+
+
+
+
+
+
+
+
+
+ /*  Media Queries */
+
+ /* 320...767 px */
+ @media screen and (max-width: 767px) {
+   .App {
+     min-width: 280px;
+     width: 280px;
+     margin: 0 auto;
+   }
+
+   .App-wrapper {
+     padding-top: 44px;
+     padding-bottom: 64px;
+   }
+
+   .App-header {
+     margin-bottom: 32px;
+     font-size: 34px;
+     max-width: 280px;
+     height: 124px;
+   }
+
+   .App-cardForm {
+     margin-bottom: 25px;
+   }
+
+   .App-infoCards-Button {
+     grid-template-areas: "sum  "
+       "payment"
+       "button";
+   }
+ }
+
+ /* 768...1023 px */
+ @media screen and (min-width: 768px) {
+   .App {
+     min-width: 696px;
+     width: 696px;
+     margin: 0 auto;
+   }
+
+   .App-wrapper {
+     padding-top: 64px;
+     padding-bottom: 156px;
+   }
+
+   .App-header {
+     margin-bottom: 44px;
+   }
+
+   .App-cardForm {
+     margin-bottom: 44px;
+   }
+
+   .App-infoCards-Button {
+     grid-template-areas: "sum payment "
+       "button button";
+          row-gap: 44px;
+   }
+ }
+
+ /* 1024...1439 px */
+ @media screen and (min-width: 1024px) {
+   .App {
+     min-width: 928px;
+     width: 928px;
+     margin: 0 auto;
+   }
+
+   .App-wrapper {
+     padding-top: 100px;
+     padding-bottom: 120px;
+   }
+
+   .App-header {
+     margin-bottom: 44px;
+   }
+
+   .App-cardForm {
+     margin-bottom: 44px;
+   }
+
+   .App-infoCards-Button {
+     grid-template-areas: "sum payment "
+       "button button";
+          row-gap: 44px;
+   }
+ }
+
+ /* 1400 ...infinity */
+ @media screen and (min-width: 1440px) {
+   .App {
+     width: 1345px;
+     min-width: 1345px;
+     margin: 0 auto;
+   }
+
+   .App-wrapper {
+     padding: 213px 0;
+   }
+
+   .App-header {
+     margin-bottom: 32px;
+   }
+
+   .App-cardForm {
+     margin-bottom: 51px;
+   }
+
+   .App-infoCards-Button {
+
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+   }
+ }

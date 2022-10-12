@@ -1,0 +1,171 @@
+
+.submitButton {
+  border: none;
+
+  /* Frame 3 */
+  
+  
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 16px 12px;
+    gap: 10px;
+  
+   
+    width: 280px;
+    height: 68px;
+    box-sizing: border-box;
+    margin: 0;
+ 
+  
+    background: #FF9514;
+    border-radius: 40px;
+
+}
+
+.submitButton:hover {
+  background: #111111;
+}
+
+.submitButton:active{
+  background: #575757;
+}
+
+.disabled {
+  background: rgba(255, 149, 20, 0.4);
+}
+
+ 
+.submitButtonText{
+    /* Оставить заявку */
+    
+    
+      /* width: 241px; */
+      height: 36px;
+      margin: 0;
+      padding: 0;
+    
+      /* H2 30 */
+      font-family: 'Nekst-Black';
+      font-style: normal;
+      font-weight: 900;
+      font-size: 30px;
+      line-height: 36px;
+      /* identical to box height, or 120% */
+    
+      color: #ffffff;
+  
+}
+
+
+
+
+
+
+  /* spinner */
+ .spinner {
+   -webkit-animation: rotate 2s linear infinite;
+   animation: rotate 2s linear infinite;
+   width: 50px;
+   height: 50px;
+ }
+
+ .spinner .path {
+   stroke: #ffffff;
+   stroke-linecap: round;
+   -webkit-animation: dash 1.5s ease-in-out infinite;
+   animation: dash 1.5s ease-in-out infinite;
+ }
+
+ @-webkit-keyframes rotate {
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+
+ @keyframes rotate {
+   100% {
+     transform: rotate(360deg);
+   }
+ }
+
+ @-webkit-keyframes dash {
+   0% {
+     stroke-dasharray: 1, 150;
+     stroke-dashoffset: 0;
+   }
+
+   50% {
+     stroke-dasharray: 90, 150;
+     stroke-dashoffset: -35;
+   }
+
+   100% {
+     stroke-dasharray: 90, 150;
+     stroke-dashoffset: -124;
+   }
+ }
+
+ @keyframes dash {
+   0% {
+     stroke-dasharray: 1, 150;
+     stroke-dashoffset: 0;
+   }
+
+   50% {
+     stroke-dasharray: 90, 150;
+     stroke-dashoffset: -35;
+   }
+
+   100% {
+     stroke-dasharray: 90, 150;
+     stroke-dashoffset: -124;
+   }
+ }
+
+
+
+
+
+
+
+
+
+ /*  Media Queries */
+
+ /* 320...767 px */
+ @media screen and (max-width: 767px) {
+   .submitButton {
+     width: 280px;
+     
+   }
+   .submitButtonText{
+    font-size: 22px;
+    line-height: 20px;
+    /* width: 177px; */
+      height: 20px;
+   }
+ }
+
+ /* 768...1023 px */
+ @media screen and (min-width: 768px) {
+   .submitButton {
+     width: 345px;
+   }
+ }
+
+ /* 1024...1439 px */
+ @media screen and (min-width: 1024px) {
+   .submitButton {
+     width: 345px;
+   }
+ }
+
+ /* 1400 ...infinity */
+ @media screen and (min-width: 1440px) {
+   .submitButton {
+     width: 426px;
+   }
+ }

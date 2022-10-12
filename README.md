@@ -15,10 +15,10 @@
 + валидация https://validator.w3.org/
 
  ## Скриншоты
-### + ширина 1440+ 
+###  ширина 1440+ 
 ![image](https://user-images.githubusercontent.com/96003382/195368340-5767be18-e6e7-461f-abea-863f69b8b0b7.png)
 
-### + ширина 1120-1439px
+###  ширина 1120-1439px
 ![image](https://user-images.githubusercontent.com/96003382/195369280-24dca011-7ab8-4fc9-8c4b-8b5a884efe33.png)
 
 

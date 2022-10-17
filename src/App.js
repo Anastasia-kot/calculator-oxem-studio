@@ -2,8 +2,7 @@ import  { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import { Button } from './components/Button/Button';
-// import { Card } from './components/CardsForm/Card';
-import { CardForm } from './components/CardsForm/CardForm';
+import { CardsForm } from './components/CardsForm/CardsForm';
 import { InfoCard } from './components/InfoCard/InfoCard';
 import { actions, setFormSubmitTC } from './redux/main-reducer.ts';
 
@@ -38,7 +37,7 @@ function App() {
         <div className="App-main">
 
           <div className="App-cardForm">
-            <CardForm  /> 
+            <CardsForm  /> 
           </div>
                   
           <div className="App-infoCards-Button">

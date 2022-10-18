@@ -40,12 +40,7 @@ function App() {
             <CardsForm  /> 
           </div>
                   
-          <div className="App-infoCards-Button">
-            <InfoCard className="App-infoCard" name='Сумма договора лизинга' sum={contractSum} measure ='₽'/>
-            <InfoCard className="App-infoCard" name='Ежемесячный платеж от' sum={monthlyPayment} measure ='₽'/>
-            <Button className="App-button" name={'Оставить заявку'} isFetching={isFetching} onClickFunc={onClickFunctionForButton}/> 
-
-          </div>
+        
                   
        
         </div>  

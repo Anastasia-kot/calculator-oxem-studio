@@ -5,10 +5,6 @@ import styles from './InputCard.module.css';
  
 
 
-
-
-
-
 export const InputCard = ({ label_text, min, max, name, onChange, onBlur, value, value_cost, error}) => {
     const name_range = name + '_range'; 
     return (

@@ -3,6 +3,8 @@ import styles from './Card.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { setCostTC, setInitialFeeTC, setTermTC } from '../../redux/main-reducer.ts';
 import { InputCard } from './InputCard/InputCard';
+import { InfoCard } from '../InfoCard/InfoCard';
+import { Button } from '../Button/Button';
 
 
 
@@ -344,6 +346,14 @@ export const CardsForm = React.memo(({ name, sum, measure }) => {
                     value={values.term}
                     error={errors.term}
                 />
+
+
+                <div className="App-infoCards-Button">
+                    <InfoCard className="App-infoCard" name='Сумма договора лизинга' sum={contractSum} measure='₽' />
+                    <InfoCard className="App-infoCard" name='Ежемесячный платеж от' sum={monthlyPayment} measure='₽' />
+                    <Button className="App-button" name={'Оставить заявку'} isFetching={isFetching} onClickFunc={onClickFunctionForButton} />
+
+                </div>
 
             </form>
 

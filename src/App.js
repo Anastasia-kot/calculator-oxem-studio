@@ -1,19 +1,10 @@
 import  { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
-import { Button } from './components/Button/Button';
 import { CardsForm } from './components/CardsForm/CardsForm';
-import { InfoCard } from './components/InfoCard/InfoCard';
-import { actions, setFormSubmitTC } from './redux/main-reducer.ts';
+import { actions } from './redux/main-reducer.ts';
 
 function App() {
-
-  const contractSum = useSelector(state => state.mainPage.contractSum)
-  const monthlyPayment = useSelector(state => state.mainPage.monthlyPayment)
-  const isFetching = useSelector(state => state.mainPage.isFetching)
-  const cost = useSelector(state => state.mainPage.cost)
-  const initialFee = useSelector(state => state.mainPage.initialFee)
-  const term = useSelector(state => state.mainPage.term)
 
   const dispatch = useDispatch()
 
@@ -22,9 +13,7 @@ function App() {
     dispatch(actions.setContractSum())    
   }, [dispatch])
 
-  const onClickFunctionForButton = () => {
-    dispatch(setFormSubmitTC(cost, initialFee, term))
-  }
+
 
   return (
     <div className="App-wrapper">

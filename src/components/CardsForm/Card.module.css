@@ -1,4 +1,4 @@
-.form {
+.formInputsGroup {
   display: flex;
   gap: 32px;
   flex-wrap: wrap;
@@ -61,14 +61,14 @@
 }
 
 
- 
+
 
 .CardRange {
-    position: absolute;
- 
+  position: absolute;
+
   -webkit-appearance: none;
   width: 93%;
-   
+
   height: 2px;
   background-color: #E1E1E1;
   outline: none;
@@ -80,8 +80,8 @@
 
   /* ??? */
   -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 
 }
 
@@ -101,38 +101,38 @@
   height: 20px;
   border-radius: 100%;
   background: #FF9514;
- }
-
- 
-
-  
-    .CardRange::-moz-range-track {
-      width: 93%;
-      bottom: 0;
-      height: 2px;
-      background-color: #E1E1E1;
-    }
-  
-    .CardRange::-moz-range-thumb {
-        appearance: none;
-        width: 20px;
-        height: 20px;
-        border-radius: 100%;
-        background: #FF9514;
-        border: none;
-    }
+}
 
 
+
+
+.CardRange::-moz-range-track {
+  width: 93%;
+  bottom: 0;
+  height: 2px;
+  background-color: #E1E1E1;
+}
+
+.CardRange::-moz-range-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: #FF9514;
+  border: none;
+}
 
 
 
 
 
-.error{
-margin-top: 10px;
- width: 280px;
 
- }
+
+.error {
+  margin-top: 10px;
+  width: 280px;
+
+}
 
 
 
@@ -275,6 +275,50 @@ margin-top: 10px;
 
 
 
+
+.AppInfoCardsButton {
+  display: grid;
+  grid-template-areas: "sum "
+    "payment"
+    "button ";
+  row-gap: 29px;
+}
+
+.AppInfoCard:first-child {
+  grid-area: "sum";
+}
+
+.AppInfoCard:last-child {
+  grid-area: "payment";
+}
+
+.AppButton {
+  grid-area: "button";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*  Media Queries */
 
 /* 320...767 px */
@@ -283,7 +327,8 @@ margin-top: 10px;
     gap: 25px;
   }
 
-  .CardInput,.error {
+  .CardInput,
+  .error {
     width: 280px;
   }
 
@@ -317,48 +362,81 @@ margin-top: 10px;
     margin-bottom: 8px;
   }
 
-.CardRange {
-   bottom:25px;
-   left: 13px;
-   width: 253px;
+  .CardRange {
+    bottom: 25px;
+    left: 13px;
+    width: 253px;
   }
 
+  .AppInfoCardsButton {
+    grid-template-areas: "sum  "
+      "payment"
+      "button";
+  }
 
 }
 
 /* 768...1023 px */
 @media screen and (min-width: 768px) {
-  .CardInput,.error {
+
+  .CardInput,
+  .error {
     width: 696px;
   }
-    .CardRange {
-      bottom: 8px;
-      left: 13px;
-      width: 667px;
-    }
+
+  .CardRange {
+    bottom: 8px;
+    left: 13px;
+    width: 667px;
+  }
+
+  .AppInfoCardsButton {
+    grid-template-areas: "sum payment "
+      "button button";
+    row-gap: 44px;
+  }
 }
 
 /* 1024...1439 px */
 @media screen and (min-width: 1024px) {
-  .CardInput,.error {
+
+  .CardInput,
+  .error {
     width: 928px;
   }
-      .CardRange {
-      bottom: 8px;
-      left: 13px;
-      width: 900px;
-    }
+
+  .CardRange {
+    bottom: 8px;
+    left: 13px;
+    width: 900px;
+  }
+
+  .AppInfoCardsButton {
+    grid-template-areas: "sum payment "
+      "button button";
+    row-gap: 44px;
+  }
 }
 
 /* 1400 ...infinity */
 @media screen and (min-width: 1440px) {
-  .CardInput ,.error {
+
+  .CardInput,
+  .error {
     width: 427px;
   }
-       .CardRange {
-      bottom: 8px;
-      left: 13px;
-      width: 400px;
-    }
+
+  .CardRange {
+    bottom: 8px;
+    left: 13px;
+    width: 400px;
+  }
+
+  .AppInfoCardsButton {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
 }

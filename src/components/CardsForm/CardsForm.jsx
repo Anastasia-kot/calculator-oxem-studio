@@ -5,7 +5,7 @@ import { setCostTC, setInitialFeeTC, setTermTC } from '../../redux/main-reducer.
 import { InputCard } from './InputCard/InputCard';
 import { InfoCard } from '../InfoCard/InfoCard';
 import { Button } from '../Button/Button';
-
+import { setFormSubmitTC } from '../../redux/main-reducer.ts';
 
 
 export const CardsForm = React.memo(({ name, sum, measure }) => {
@@ -16,6 +16,10 @@ export const CardsForm = React.memo(({ name, sum, measure }) => {
     const initialFee = useSelector(state => state.mainPage.initialFee)
     const term = useSelector(state => state.mainPage.term)
 
+    //button + cards state
+    const contractSum = useSelector(state => state.mainPage.contractSum)
+    const monthlyPayment = useSelector(state => state.mainPage.monthlyPayment)
+    const isFetching = useSelector(state => state.mainPage.isFetching)
 
     const [values, setValues] = React.useState({
         cost: cost,
@@ -301,8 +305,9 @@ export const CardsForm = React.memo(({ name, sum, measure }) => {
             }
         }
     }
-
- 
+    const onClickFunctionForButton = () => {
+        dispatch(setFormSubmitTC(cost, initialFee, term))
+    }
     const handleSubmit = () => { }
 
 
@@ -312,47 +317,47 @@ export const CardsForm = React.memo(({ name, sum, measure }) => {
             <form
                 onSubmit={handleSubmit}
                 className={styles.form}>
+                <div className={styles.formInputsGroup}>
 
-                <InputCard
-                    label_text='Стоимость автомобиля '
-                    min='1000000'
-                    max='6000000'
-                    name='cost'
-                    onChange={onChange.onChangeCost}
-                    onBlur={onBlur.onBlurCost}
-                    value={values.cost}
-                    error={errors.cost}
-                />
+                    <InputCard
+                        label_text='Стоимость автомобиля '
+                        min='1000000'
+                        max='6000000'
+                        name='cost'
+                        onChange={onChange.onChangeCost}
+                        onBlur={onBlur.onBlurCost}
+                        value={values.cost}
+                        error={errors.cost}
+                    />
 
-                <InputCard
-                    label_text='Первоначальный взнос'
-                    min='10'
-                    max='60'
-                    name='initialFee'
-                    onChange={onChange.onChangeInitialFee}
-                    onBlur={onBlur.onBlurInitialFee}
-                    value={values.initialFee}
-                    value_cost={values.cost}
-                    error={errors.initialFee}
-                />
+                    <InputCard
+                        label_text='Первоначальный взнос'
+                        min='10'
+                        max='60'
+                        name='initialFee'
+                        onChange={onChange.onChangeInitialFee}
+                        onBlur={onBlur.onBlurInitialFee}
+                        value={values.initialFee}
+                        value_cost={values.cost}
+                        error={errors.initialFee}
+                    />
 
-                <InputCard
-                    label_text='Срок лизинга'
-                    min='1'
-                    max='60'
-                    name='term'
-                    onChange={onChange.onChangeTerm}
-                    onBlur={onBlur.onBlurTerm}
-                    value={values.term}
-                    error={errors.term}
-                />
+                    <InputCard
+                        label_text='Срок лизинга'
+                        min='1'
+                        max='60'
+                        name='term'
+                        onChange={onChange.onChangeTerm}
+                        onBlur={onBlur.onBlurTerm}
+                        value={values.term}
+                        error={errors.term}
+                    />
+                </div>
 
-
-                <div className="App-infoCards-Button">
-                    <InfoCard className="App-infoCard" name='Сумма договора лизинга' sum={contractSum} measure='₽' />
-                    <InfoCard className="App-infoCard" name='Ежемесячный платеж от' sum={monthlyPayment} measure='₽' />
-                    <Button className="App-button" name={'Оставить заявку'} isFetching={isFetching} onClickFunc={onClickFunctionForButton} />
-
+                <div className={styles.AppInfoCardsButton}>
+                    <InfoCard className={styles.AppInfoCard} name='Сумма договора лизинга' sum={contractSum} measure='₽' />
+                    <InfoCard className={styles.AppInfoCard} name='Ежемесячный платеж от' sum={monthlyPayment} measure='₽' />
+                    <Button className={styles.AppButton} name={'Оставить заявку'} isFetching={isFetching} onClickFunc={onClickFunctionForButton} />
                 </div>
 
             </form>

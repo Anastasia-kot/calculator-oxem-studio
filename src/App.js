@@ -25,9 +25,9 @@ function App() {
 
         <div className="App-main">
 
-          <div className="App-cardForm">
+         
             <CardsForm  /> 
-          </div>
+          
                   
         
                   

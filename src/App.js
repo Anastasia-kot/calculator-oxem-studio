@@ -1,4 +1,4 @@
-import  { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import { CardsForm } from './components/CardsForm/CardsForm';
@@ -8,33 +8,23 @@ function App() {
 
   const dispatch = useDispatch()
 
-  useEffect( ()=>{
+  useEffect(() => {
     dispatch(actions.setMonthlyPayment())
-    dispatch(actions.setContractSum())    
+    dispatch(actions.setContractSum())
   }, [dispatch])
 
 
 
   return (
     <div className="App-wrapper">
-    <div className="App">
-
-        <h1 className="App-header"> 
+      <div className="App">
+        <h1 className="App-header">
           Рассчитайте стоимость автомобиля в&nbsp;лизинг
         </h1>
-
         <div className="App-main">
-
-         
-            <CardsForm  /> 
-          
-                  
-        
-                  
-       
-        </div>  
-         
-    </div>
+          <CardsForm />
+        </div>
+      </div>
     </div>
   );
 }
